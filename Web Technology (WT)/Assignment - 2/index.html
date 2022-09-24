@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+
+        }
+        .container{
+               margin:5vh;
+               padding: 4vh;
+               width:35%;
+               height: 60vh;
+               border: 2px solid black;
+               display: inline-block;
+               border-radius: 5px;
+        }
+        .form{
+            margin: 8vh;
+        }
+        .form label{
+            font-size: large;
+        }
+        .form input{
+            width: 38vh;
+            height: 5vh;
+            border-radius: 5px;
+            margin-left: 5vh;
+        }
+        .form input:hover{
+            border:2px solid grey;
+        }
+        button{
+            width: 15vh;
+            height: 5vh;
+            background-color: blue;
+            border-radius: 5px;
+            color: white;
+            margin-left: 32vh;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(71, 71, 190);
+        }
+        iframe{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <h1>Login Form</h1>
+        <form action="/" >
+        <div class="form">
+            <label for="name">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+        </div>
+        <div class="form">
+            <label for="name">Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+        </div>
+        <div class="form">
+            <label for="name">Password:</label>
+            <input type="text" id="password" name="password" placeholder="Enter Password" required>
+        </div>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    </div>
+    <div class="container" style="border:none" >
+        <h1>Walchand Institute of Technology</h1>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.6103266632012!2d75.92062391480047!3d17.668605587910584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5da42cf5b6333%3A0xce43e421c82afed7!2sWalchand%20Institute%20Of%20Technology%20(%20W.I.T%20)!5e0!3m2!1sen!2sin!4v1662240718797!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</body>
+</html>

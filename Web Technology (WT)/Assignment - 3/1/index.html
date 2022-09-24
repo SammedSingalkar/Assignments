@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <style>
+        h1{
+            text-align: center;
+            font-size: x-large;
+        }
+        .container{
+            margin:8vh;
+            padding: 5vh;
+            border: 2px solid grey;
+            border-radius: 5px;
+            height: 85vh;
+        }
+
+        .form{
+            margin: 5vh;
+            margin-left: 35vh;
+        }
+        .form input{
+            width:70vh;
+            height: 5vh;
+        }
+        #submit{
+            width: 14vh;
+            height: 5vh;
+            margin-left:75vh;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #reset{
+            width: 14vh;
+            height: 5vh;
+            margin-left:4vh;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form asterisk{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact us</h1>
+    <div class="container">
+        <form action="/">
+        <div class="form">
+            <label for="name" style="margin-right:13vh;">Name<asterisk>*</asterisk>:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form">
+            <label for="name" style="margin-right:10vh;">Email id<asterisk>*</asterisk>:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your Email id" required>
+        </div>
+        <div class="form">
+            <label for="name" style="margin-right:2vh;">Contact Number<asterisk>*</asterisk>:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your contact number" required>
+        </div>
+        <div class="form">
+            <label for="name" style="margin-right:14vh;">City<asterisk>*</asterisk>:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your city" required>
+        </div>
+        <div class="form">
+            <label for="name"style="margin-right:6.5vh;">Description<asterisk>*</asterisk>:</label>
+            <textarea name="Description" id="description" cols="57.5" rows="10" required></textarea>
+        </div>
+        <button type="submit" id="submit" value="Submit">Submit</button>
+        <button type="reset" id="reset" value="Submit">Cancel</button>
+    </form>      
+    </div>
+   
+</body>
+</html>
