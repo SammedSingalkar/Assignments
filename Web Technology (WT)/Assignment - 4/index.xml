@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<students>
+	<student id="be1">
+		<firstname>Sammed</firstname>
+		<lastname>Singalkar</lastname>
+		<branch>CSE</branch>
+	</student>
+    <student id="be2">
+		<firstname>Yash</firstname>
+		<lastname>Singalkar</lastname>
+		<branch>CSE</branch>
+	</student>
+    <student id="be3">
+		<firstname>Anuj</firstname>
+		<lastname>Somani</lastname>
+		<branch>CSE</branch>
+	</student> 
+	
+</students>
