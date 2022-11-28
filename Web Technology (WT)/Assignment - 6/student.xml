@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<student>
+	<student id="be128">
+		<firstname>Vishy</firstname>
+		<lastname>Anand</lastname>
+		<rollNo>B-42</rollNo>
+		<branch>CSE</branch>
+	</student>
+	<student id="be129">
+		<firstname>Rameshbabu</firstname>
+		<lastname>Praggnanandhaa</lastname>
+		<rollNo>B-43</rollNo>
+		<branch>CSE</branch>
+	</student>
+	<student id="be130">
+		<firstname>Sagar</firstname>
+		<lastname>Shah</lastname>
+		<rollNo>B-44</rollNo>
+		<branch>CSE</branch>
+	</student>
+	<student id="be131">
+		<firstname>Samay</firstname>
+		<lastname>Raina</lastname>
+		<rollNo>B-45</rollNo>
+		<branch>CSE</branch>
+	</student>
+	<student id="be132">
+		<firstname>Vidit</firstname>
+		<lastname>Gujrathi</lastname>
+		<rollNo>B-46</rollNo>
+		<branch>CSE</branch>
+	</student>
+	<student id="be133">
+		<firstname>Garry</firstname>
+		<lastname>Kasparov</lastname>
+		<rollNo>B-47</rollNo>
+		<branch>CSE</branch>
+	</student>
+
+</student>
