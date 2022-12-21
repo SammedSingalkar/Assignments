@@ -14,6 +14,3 @@ primary key (student_id)
 Insert into student values (1,0147258736980145,'Sammed Singalkar','sammedsingalkar@gmail.com',9658741238,'skfjb@554#6fu','Male');
 
 select * from student;
-
-truncate table student;
-drop table student;
