@@ -13,6 +13,8 @@ $ npm i --save @fortawesome/free-solid-svg-icons
 
 $ npm i --save @fortawesome/react-fontawesome
 
+$ npm install react-flip-move
+
 
 
 npm run build
