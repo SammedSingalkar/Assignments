@@ -4,6 +4,7 @@ then open the folder in terminal and install npx install react and check for npm
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+npx create-react-app appname
 
 ## Available Scripts
 
