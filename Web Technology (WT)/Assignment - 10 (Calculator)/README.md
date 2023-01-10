@@ -1,6 +1,10 @@
 # Getting Started with Create React App
+First install nodejs from https://nodejs.org/en/download/
+then open the folder in terminal and install npx install react and check for npm version using npm --version
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+npx create-react-app appname
 
 ## Available Scripts
 
