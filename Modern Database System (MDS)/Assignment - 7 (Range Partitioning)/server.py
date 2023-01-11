@@ -24,7 +24,7 @@ def client_handler(connection):
     global m
     if(j==0):
         for i in range(len(result)):
-            if(result[i][3]<=2):
+            if(result[i][0]<=2):
                 str1=""
                 for k in result[i]:
                     str1+=str(k)+" "
@@ -32,7 +32,7 @@ def client_handler(connection):
                 connection.send(str.encode(str1))
     else:
         for i in range(len(result)):
-            if(result[i][3]>2):
+            if(result[i][0]>2):
                 str1=""
                 for k in result[i]:
                     str1+=str(k)+" "

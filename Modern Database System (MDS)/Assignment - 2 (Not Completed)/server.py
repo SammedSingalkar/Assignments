@@ -1,87 +1,70 @@
-from http import client
-from re import X
 import socket
+import os
 from _thread import *
+ServerSideSocket = socket.socket()
+host = socket.gethostname()
+port = 5000
+ThreadCount = 0
+
 import mysql.connector
-import time
 
-host = '127.0.0.1'
-port = 1233
-cnt=0
-conn=mysql.connector.connect(host='localhost',username='root',password='Iamsammed@12',database='banking')
-my_curr=conn.cursor()
-def databaseupdate():
-    try:
-        my_curr.execute("select * from cust")
-        '''result=my_curr.fetchall()
-        for i in range(len(result)):
-            result[i][2]+=500'''
-        conn.commit()
-        sql="update cust set amount = `amount+500`  where c_id=1 "
-        my_curr.execute(sql)
-        conn.commit()
-    except:
-        conn.rollback()
+# create connection object
+con = mysql.connector.connect(
+host="localhost", user="root",
+password="Iamsammed@12", database="cust")
+clients = []
+# create cursor object
+cursor = con.cursor()
 
-buffer=[]
-buffer2=[]
-def call():
-    if(len(buffer)==len(buffer2)):
-        if(all(buffer2)):
-            for j in range(len(buffer)):
-                databaseupdate()
-                buffer[j].send(str.encode("commit"))
-        else:
-            for j in range(len(buffer)):
-                buffer[j].send(str.encode("Abort"))
-    
-
-def client_handler(connection):
-    '''connection.send(str.encode('You are now connected to the replay server... Type BYE to stop'))
-    str1=''
-    global j
-    global m
-    for k in range(j,j+m):
-        for i in result[k]:
-            str1+=str(i)+' '
-        str1+='\n'
-    j=m
-
-    while True:
-        data = connection.recv(2048)
-        message = data.decode('utf-8')
-        if message == 'BYE':
-            break
-        reply = f'Server: {message}'
-        connection.send(str.encode(str1))
-    connection.close()'''
-    while True:
-        reply=connection.recv(2048)
-        reply=reply.decode('utf-8')
-        if(reply=='Ready'):
-            buffer2.append(1)
-        else:
-            buffer2.append(0)
-        time.sleep(5)
-        call()
-        
-    connection.close()
-
-def accept_connections(ServerSocket):
-    Client, address = ServerSocket.accept()
+try:
+    ServerSideSocket.bind((host, port))
+except socket.error as e:
+    print(str(e))
+print('Socket is listening..')
+ServerSideSocket.listen(2)
+def multi_threaded_client(connection,info):
+    connection.send(str.encode('<Prepare T>'))
+    # while True:
+    #     data = connection.recv(2048)
+    #     response = 'Server message: ' + data.decode('utf-8')
+    #     if not data:
+    #         break
+    #     # print(info)
+    #     connection.sendall(str.encode(info))
+    # connection.close()
+while True:
+    Client, address = ServerSideSocket.accept()
     print('Connected to: ' + address[0] + ':' + str(address[1]))
-    buffer.append(Client)
-    Client.send(str.encode("Prepare"))
-    start_new_thread(client_handler, (Client,))   
+    query1 = str("select * from cust")
+    cursor.execute(query1)
+    table = cursor.fetchall()
+    data1 = ""
+    clients.append(Client)
+    start_new_thread(multi_threaded_client, (Client, data1))
 
-def start_server(host, port):
-    ServerSocket = socket.socket()
-    try:
-        ServerSocket.bind((host, port))
-    except socket.error as e:
-        print(str(e))
-    print(f'Server is listing on the port {port}...')
-    ServerSocket.listen()
-    while True:
-        accept_connections(ServerSocket)
-start_server(host, port)
+    ThreadCount += 1
+    if ThreadCount == 2:
+        flag = 1
+        print(clients)
+        for i in clients:
+            data = i.recv(2048).decode()
+            print("received : ",data)
+            if data == "<NO T>" or data == "":
+                flag = 0
+        if flag:
+            q1 = "SELECT amount FROM cust WHERE c_id=1"
+            cursor.execute(q1)
+            value = str(int(cursor.fetchall()[0][0])+500)
+            print(value,"value ")
+            q1 = "UPDATE cust SET amount = " + value +" WHERE c_id=1;  "
+            cursor.execute(q1)
+            for i in clients:
+                i.send(str.encode("<COMMIT T>"))
+                # i.close()
+        else:
+            for i in clients:
+                i.send(str.encode("<ABORT T>"))
+    
+    
+    print('Thread Number: ' + str(ThreadCount))
+ServerSideSocket.close()

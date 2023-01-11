@@ -7,7 +7,7 @@ host = '127.0.0.1'
 port = 1233
 ThreadCount = 0
 conn=mysql.connector.connect(host='localhost',user='root',password='Iamsammed@12',database='college',auth_plugin="mysql_native_password")
-my_curr=conn.curso35r()
+my_curr=conn.cursor()
 try:
     my_curr.execute("select * from student")
     result=my_curr.fetchall()
