@@ -9,13 +9,14 @@ def client_program():
     client_socket = socket.socket()  # instantiate
     client_socket.connect((host, port))  # connect to the server
 
-    message = input(" Write a query : -> ")  # take input
+    # message = input(" Write a query : -> ")  # take input
+    message = input("-> ")  # take input
 
     while message.lower().strip() != 'bye':
         client_socket.send(message.encode())  # send message
         data = client_socket.recv(1024).decode()  # receive response
 
-        print('Received from server: /n' + data)  # show in terminal
+        print('Received from server:' + data)  # show in terminal
 
         message = input(" -> ")  # again take input
 

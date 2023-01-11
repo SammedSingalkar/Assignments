@@ -1,17 +1,4 @@
 import socket
-# import required modules
-import mysql.connector
-
-# create connection object
-
-# default_authentication_plugin=caching_sha2_password
-# default_authentication_plugin= "Iamsammed@12"
-con = mysql.connector.connect(
-host="localhost", user="root",
-password="sammed@8308497059", database="college",auth_plugin='mysql_native_password')
-
-# create cursor object
-cursor = con.cursor()
 
 def server_program():
     # get the hostname
@@ -26,6 +13,7 @@ def server_program():
     # configure how many client the server can listen simultaneously
     server_socket.listen(2)
     conn, address = server_socket.accept()  # accept new connection
+    print("Sucessfully Connected.....")
     print("Connection from: " + str(address))
     while True:
         # receive data stream. it won't accept data packet greater than 1024 bytes
@@ -33,15 +21,9 @@ def server_program():
         if not data:
             # if data is not received break
             break
-        query1 = str(data)
+        # query1 = str(data)
         print("from connected user: " + str(data))
-        cursor.execute(query1)
-        table = cursor.fetchall()
-        data = ""
-        for row in table:
-            data += str(row[0]) + " "
-            data += str(row[1]) + " "
-            data += str(row[2]) + " "
+        data = input('->')
         
         conn.send(data.encode())  # send data to the client
 
